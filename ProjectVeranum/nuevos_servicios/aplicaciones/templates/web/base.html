@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  {% block estilos %}
+  {% endblock estilos %}
+  <title>Document</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img class="logo" src="{% static 'img/logoVeranum-removebg-preview.png' %}" /></a>
+    <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Habitaciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'servicio' %}">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Promociones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'form' %}">Contacto</a>
+        </li>
+      </ul>
+      <a id="btn" type="button" href="{% url 'form' %}" class="btn btn-light  btn-reserva">Reservar</a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar -->
+{% block contenido %}
+
+{% endblock contenido %}
+<!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2024 Hoteles VERANUM. Todos los derechos reservados.</p>
+    <div>
+      <a href="">Términos de Servicio</a>
+      <a href="">Política de Privacidad</a>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('youtube-player', {
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+    }
+
+    function onPlayerReady(event) {
+        event.target.playVideo();
+    }
+
+    // Carga la API de IFrame de YouTube de manera asincrónica
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+</script>
+{% block js %}
+{% endblock js %}
+</body>
+
+</html>

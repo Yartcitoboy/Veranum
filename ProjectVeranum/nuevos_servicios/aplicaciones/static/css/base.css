@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* HEADER */
+
+.logo {
+  max-height: 60px;
+  height: 100%;
+}
+.nav-link {
+  color: #fff;
+}
+.nav-link:hover {
+  color: #4794ff !important;
+}
+
+.navbar-nav {
+  margin: 0 auto;
+}
+
+.btn-reserva {
+  width: 10%;
+  /* Establece el tamaño deseado para el botón de reserva */
+}
+
+
+/* FOOTER */
+
+.footer {
+  background-color: #212529;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.footer p {
+  margin: 0;
+}
+.footer a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px;
+}
+
+#youtube-player {
+  display: none;
+}

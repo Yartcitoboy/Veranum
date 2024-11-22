@@ -1,0 +1,177 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock estilos %}
+
+{% block contenido %}
+
+<!-- CONTENIDO CENTRAL -->
+
+<div class="container mt-5">
+  <h1>Descubre la comodidad y el lujo en Hoteles VERANUM</h1>
+  <h2 class="h2-h1">Disfruta de una experiencia excepcional en nuestros hoteles con</h2>
+  <h2 class="h2-h2">las mejores instalaciones y servicios.</h2>
+</div>
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'img/HotelSaatiago.avif' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'img/HotelVina.avif' %}" class="d-block w-100" alt="..." style="width: 1920; height: 720;">
+    </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<main>
+  <section class="servicios-instalaciones">
+    <div class="servicios">
+      <h2>Servicios e Instalaciones</h2>
+      <div text-container>
+        <p class="text1">Disfruta de una amplia gama de servicios e instalaciones diseñados para brindar</p>
+        <p class="text2">una experiencia excepcional.</p>
+      </div>
+    </div>
+
+    <div class="card-group cardGroup1">
+      <div class="card card1">
+        <i class="fas fa-spa text-primary text-4xl"></i>
+        <div class="card-body">
+          <h5 class="card-title">Spa y Bienestar</h5>
+          <p class="card-text card-text1">Relájate y rejuvenece en nuestro lujoso spa con una amplia gama de
+            tratamientos.</p>
+        </div>
+      </div>
+      <div class="card card1">
+        <i class="fas fa-dumbbell text-primary text-4xl"></i>
+        <div class="card-body">
+          <h5 class="card-title">Gimnasio y Fitness</h5>
+          <p class="card-text card-text1">Mantén tu rutina de ejercicios en nuestro moderno gimnasio equipado con lo
+            último en tecnología.</p>
+        </div>
+      </div>
+      <div class="card card1">
+        <i class="fas fa-utensils text-primary text-4xl"></i>
+        <div class="card-body">
+          <h5 class="card-title">Restaurantes y Bares</h5>
+          <p class="card-text card-text1">Disfruta de una amplia variedad de opciones gastronómicas en nuestros
+            restaurantes y bares.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION 2 -->
+
+  <section>
+    <div class="Promociones">
+      <h2>Promociones y Ofertas</h2>
+      <div text-container>
+        <p class="text1">Descubre nuestras promociones y ofertas especiales para disfrutar de una estancia aún más
+        </p>
+        <p class="text2">memorable.</p>
+      </div>
+    </div>
+
+    <div class="card-group cardGroup2">
+      <div class="card card2">
+        <img src="{% static 'img/promo1.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Escapada de Fin de Semana</h5>
+          <p class="card-text card-text2">Disfruta de una estancia de 2 noches con desayuno incluido.</p>
+          <div class="center-button">
+            <button type="submit" class="btn btn-dark">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <div class="card card2">
+        <img src="{% static 'img/promo2.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Paquete Romántico</h5>
+          <p class="card-text card-text2">Celebra una ocasión especial con nuestra oferta romántica.</p>
+          <div class="center-button">
+            <button type="submit" class="btn btn-dark">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <div class="card card2">
+        <img src="{% static 'img/promo3.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Estadía Familiar</h5>
+          <p class="card-text card-text2">Disfruta de una estancia en familia con beneficios exclusivos.</p>
+          <div class="center-button">
+            <button type="submit" class="btn btn-dark">Reservar</button>
+          </div></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+
+  <section class="servicios-promociones">
+    <div class="Promociones">
+      <h2>Testimonios de Clientes</h2>
+      <div text-container>
+        <p class="text1">Escucha lo que nuestros clientes han dicho sobre su experiencia en Hoteles VERANUM.</p>
+      </div>
+    </div>
+
+    <div class="card-group card-group3">
+      <div class="card cardT" style="width: 18rem;">
+        <div class="card-body cardB">
+          <div class="d-flex align-items-center mb-4">
+            <i class="far fa-user fa-2x mr-2"></i>
+            <h6 class="card-subtitle mb-0 ms-3 text-body-secondary">Mark Zuckerberg</h6>
+          </div>
+          <p class="card-text card-text2">"Hoteles VERANUM es mi primera opción cuando viajo por<br> negocios. Las instalaciones
+            son perfectas para<br> reuniones y eventos, y el servicio es excepcional."</p>
+        </div>
+      </div>
+
+      <div class="card cardT" style="width: 18rem;">
+        <div class="card-body cardB">
+          <div class="d-flex align-items-center mb-4">
+            <i class="far fa-user fa-2x mr-2"></i>
+            <h6 class="card-subtitle mb-0 ms-3 text-body-secondary">Elon Musk</h6>
+          </div>
+          <p class="card-text card-text2">""Tuve una experiencia excepcional en Hoteles VERANUM.\n Las instalaciones son de
+            primera clase y el servicio es\n impecable. Definitivamente volveré."</p>
+        </div>
+      </div>
+
+      <div class="card cardT" style="width: 18rem;">
+        <div class="card-body cardB">
+          <div class="d-flex align-items-center mb-4">
+            <i class="far fa-user fa-2x mr-2"></i>
+            <h6 class="card-subtitle mb-0 ms-3 text-body-secondary">Jeff Bezos</h6>
+          </div>
+          <p class="card-text card-text2">"Quedé encantada con mi estancia en Hoteles VERANUM.\n Las habitaciones son amplias y
+            cómodas, y el personal\n es muy atento. ¡Definitivamente volveré!"</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <iframe id="youtube-player" width="560" height="315" 
+      src="https://www.youtube.com/embed/Twi92KYddW4?autoplay=1&loop=1&playlist=Twi92KYddW4" 
+      frameborder="0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen></iframe>
+
+
+</main>
+
+{% endblock contenido %}
+{% block js %}
+{% endblock js %}
