@@ -19,12 +19,18 @@
         <form action="{% url 'form' %}" class="form-horizontal form" method="post" id="contact_form">
             {% csrf_token %}
             <fieldset>
+
+                {% if error_message %}
+            <div class="alert alert-danger" role="alert">
+                {{ error_message }}
+            </div>
+            {% endif %}
                 <!-- Form Name -->
                 <legend class="titulo">Consulta</legend>
                 <!-- Text input-->
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Nombre del Servicio</label>
+                    <label class="col-md-4 control-label">Nombre</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
