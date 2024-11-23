@@ -22,6 +22,7 @@ $(document).ready(function () {
         run: {
           validators: {
             stringLength: {
+              Request: true,
               min: 8,
             },
             notEmpty: {
@@ -29,69 +30,32 @@ $(document).ready(function () {
             },
           },
         },
-        fono: {
-          validators: {
-            notEmpty: {
-              message: "Por favor proporcione su telefono",
-            },
-            phone: {
-              country: "CL",
-              message:
-                "Proporcione un número de teléfono válido con el código de área.",
-            },
-          },
-        },
-        direccion: {
+        email: {
           validators: {
             stringLength: {
-              min: 8,
+              Request: true,
             },
             notEmpty: {
-              message: "Por favor proporcione su direccion",
+              message: "Por favor proporcione su correo electronico",
             },
           },
         },
-        comuna: {
+        password: {
           validators: {
+            stringLength: {
+              Request: true,
+              min: 6,
+            },
             notEmpty: {
-              message: "Por favor ingrese su comuna",
+              message: "Por favor proporcione una contraseña",
             },
           },
         },
         sexo: {
           validators: {
+            Request: true,
             notEmpty: {
               message: "Por favor seleccione su sexo",
-            },
-          },
-        },
-        profesion: {
-          validators: {
-            stringLength: {
-              min: 3,
-            },
-            notEmpty: {
-              message: "Por favor proporcione su profesion",
-            },
-          },
-        },
-        ocupacion: {
-          validators: {
-            stringLength: {
-              min: 3,
-            },
-            notEmpty: {
-              message: "Por favor ptoporcione su ocupacion",
-            },
-          },
-        },
-        puesto: {
-          validators: {
-            stringLength: {
-              min: 3,
-            },
-            notEmpty: {
-              message: "Por favor proporcione su ocupacion en la empresa",
             },
           },
         },

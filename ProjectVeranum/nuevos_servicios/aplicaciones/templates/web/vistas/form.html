@@ -51,55 +51,24 @@
                     </div>
                 </div>
 
-                <!-- Text input-->
-
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Telefono</label>
+                    <label class="col-md-4 control-label">Correo</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                            <input name="fono" id="fono" placeholder="+(845)555-1212" class="form-control" type="text">
+                            <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                            <input name="email" id="email" placeholder="Correo Electronico" class="form-control" type="text">
+                            <span id="emailError" class="error"></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Text input-->
-
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Direccion</label>
+                    <label class="col-md-4 control-label">Contraseña</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                            <input name="direccion" id="direccion" placeholder="Direccion" class="form-control" type="text">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Select Basic -->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Comuna</label>
-                    <div class="col-md-4 selectContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="comuna" id="comuna" class="form-control selectpicker">
-                                <!-- {% for item in lista_comunas %}
-                                    <option>{{ item.nombre }}</option>
-                                {% endfor %} -->
-                                <option value="puente alto">puente alto</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Profesion</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user-md"></i></span>
-                            <input name="profesion" id="profesion" placeholder="Profesion" class="form-control" type="text">
+                            <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                            <input name="pass" id="pass" placeholder="Contraseña" class="form-control" type="text">
+                            <button type="button" id="togglePassword">Mostrar/Ocultar</button>
                         </div>
                     </div>
                 </div>
@@ -117,30 +86,6 @@
                             <label>
                                 <input type="radio" id="sexo" name="sexo" value="Mujer" /> Mujer
                             </label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Ocupacion</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user-tie"></i></span>
-                            <input name="ocupacion" id="ocupacion" placeholder="Ocupacion" class="form-control" type="text">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Puesto</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-                            <input name="puesto" id="puesto" placeholder="Puesto en la Empresa" class="form-control" type="text">
                         </div>
                     </div>
                 </div>

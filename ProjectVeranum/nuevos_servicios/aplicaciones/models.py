@@ -3,26 +3,18 @@ from django.core.exceptions import ValidationError
 
 # Create your models here.
 
-class Comuna(models.Model):
-    nombre = models.CharField(max_length=50)
 
-    def __str__(self):
-        return self.nombre
-
-class Contacto(models.Model):
+class Usuario(models.Model):
     nombre = models.CharField(max_length=50)
     rut = models.CharField(max_length=10, unique=True)
-    telefono = models.CharField(max_length=12)
-    direccion = models.CharField(max_length=100)
-    comuna = models.ForeignKey(Comuna, on_delete=models.CASCADE)
-    profesion = models.CharField(max_length=50)
+    email = models.CharField(max_length=120)
+    password = models.CharField(max_length=128)
     sexo = models.CharField(max_length=10)
-    ocupacion = models.CharField(max_length=50)
-    puesto = models.CharField(max_length=50)
+    
     
     def clean(self):
         # Validar que el RUT no exista previamente
-        if Contacto.objects.filter(rut=self.rut).exclude(pk=self.pk).exists():
+        if Usuario.objects.filter(rut=self.rut).exclude(pk=self.pk).exists():
             raise ValidationError(f"El RUT {self.rut} ya está registrado.")
 
     def save(self, *args, **kwargs):

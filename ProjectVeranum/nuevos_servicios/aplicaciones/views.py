@@ -1,58 +1,82 @@
 from django.shortcuts import render, redirect
-from .models import Comuna, Contacto, Servicio
+from .models import Usuario, Servicio 
+from django.contrib import messages
+from .form import LoginForm
 from django.core.exceptions import ValidationError
 # import cx_Oracle
 
 def index(request):
-    return render(request, 'web/index.html')
+    # Verificar si el usuario está logueado (si hay un usuario en la sesión)
+    usuario_nombre = request.session.get('usuario_nombre', None)
+
+    # Mostrar el mensaje de bienvenida si existe
+    if messages.get_messages(request):
+        return render(request, 'web/index.html', {'messages': messages.get_messages(request), 'usuario_nombre': usuario_nombre})
+
+    return render(request, 'web/index.html', {'usuario_nombre': usuario_nombre})
 
 def form(request):
     error_message = None  # Inicializamos error_message aquí
-    contacto = None  # Inicializamos contacto en caso de error
 
     if request.POST:
         # Obtener datos del formulario
         nombre = request.POST.get("nombre")
         rut = request.POST.get("run")
-        telefono = request.POST.get("fono")
-        direccion = request.POST.get("direccion")
-        comuna = request.POST.get("comuna")
-        profesion = request.POST.get("profesion")
+        email = request.POST.get("email")
+        password = request.POST.get("pass")
         sexo = request.POST.get("sexo")
-        ocupacion = request.POST.get("ocupacion")
-        puesto = request.POST.get("puesto")
 
         # Validar si el RUT ya está registrado
-        if Contacto.objects.filter(rut=rut).exists():
+        if Usuario.objects.filter(rut=rut).exists():
             error_message = f"El RUT {rut} ya está registrado."
         else:
-            comuna, created = Comuna.objects.get_or_create(nombre=comuna)
-
-            contacto = Contacto(
+            
+            usuario = Usuario(
                 nombre=nombre,
                 rut=rut,
-                telefono=telefono,
-                direccion=direccion,
-                comuna=comuna,
-                profesion=profesion,
+                email=email,
+                password=password,
                 sexo=sexo,
-                ocupacion=ocupacion,
-                puesto=puesto
+
             )
 
             try:
-                contacto.full_clean()  # Validar el objeto
-                contacto.save()  # Guardar en la base de datos
+                usuario.full_clean()  # Validar el objeto
+                usuario.save()  # Guardar en la base de datos
                 return redirect('certificado')
             except ValidationError as e:
                 # Capturar errores de validación
                 error_message = str(e)
 
     # Siempre asignamos una lista de contactos para el caso GET o cualquier error
-    lista_contactos = Contacto.objects.all()
+    lista_contactos = Usuario.objects.all()
 
-    return render(request, 'web/vistas/form.html', {'lista_contactos': lista_contactos, 'error_message': error_message, 'contacto': contacto})
+    return render(request, 'web/vistas/form.html', {'lista_contactos': lista_contactos, 'error_message': error_message})
 
+def login_view(request):
+    if request.method == 'POST':
+        rut = request.POST.get('run')
+        password = request.POST.get('pass')
+
+        # Validar RUT y contraseña en la base de datos
+        usuario = Usuario.objects.filter(rut=rut).first()
+        if usuario and usuario.password == password:
+            # Almacenar información en la sesión
+            request.session['usuario_id'] = usuario.id
+            request.session['usuario_nombre'] = usuario.nombre
+            messages.success(request, f"¡Bienvenido {usuario.nombre}!")
+            return redirect('/')  # Redirigir al index
+        else:
+            messages.error(request, "RUT o contraseña incorrectos.")
+            return render(request, 'web/vistas/login.html', {
+                'error': True
+            })
+    
+    return render(request, 'web/vistas/login.html')
+
+def mi_vista(request):
+    # Código de la vista...
+    return redirect(reverse('logout'))
 
 def certificado(request):
     return render(request, 'web/certificado.html')

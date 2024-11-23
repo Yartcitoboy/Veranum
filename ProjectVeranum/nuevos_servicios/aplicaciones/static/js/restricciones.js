@@ -1,30 +1,29 @@
 $(document).ready(function () {
 
-    $("#run").on("input" , function(){
-        this.value = this.value.replace(/\D/g, "");
-    });
-
     $("#nombre").on("input" , function(){
         this.value = this.value.replace(/[^A-Za-z]/g, "");
     });
 
-    $("#fono").on("input", function (){
-        this.value = this.value.replace(/\D/g,"")
-    })
+    $("#run").on("input" , function(){
+        this.value = this.value.replace(/\D/g, "");
+    });
 
-    $("#direccion").on("input", function(){
-        this.value = this.value.replace(/[^A-Za-z]/g, "")
-    })
+    $("#email").on("input", function () {
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.(com|cl)$/;
+        const emailValue = $(this).val();
+        if (!emailPattern.test(emailValue)) {
+            $("#emailError").text("Debe ser un correo @gmail.com o @gmail.cl");
+        } else {
+            $("#emailError").text("");
+        }
+    });
 
-    $("#profesion").on("input" , function(){
-        this.value = this.value.replace(/[^A-Za-z]/g, "")
-    })
-    $("ocupacion").on("input", function(){
-        this.value = this.value.replace(/[^A-Za-z]/g, "")
-    })
-
-    $("puesto").on("input", function(){
-        this.value = this.value.replace(/[^A-Za-z]/g, "")
-    })
+    // Manejo de contraseña: Mostrar y Ocultar
+    $("#togglePassword").on("click", function () {
+        const passwordField = $("#pass");
+        const fieldType = passwordField.attr("type") === "password" ? "text" : "password";
+        passwordField.attr("type", fieldType);
+        $(this).text(fieldType === "password" ? "Mostrar" : "Ocultar");
+    });
 
 });

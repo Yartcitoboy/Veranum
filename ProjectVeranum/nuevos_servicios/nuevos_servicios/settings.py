@@ -72,7 +72,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'nuevos_servicios.wsgi.application'
 
 
-
+LOGIN_REDIRECT_URL = '/'
 
 
 # Database
